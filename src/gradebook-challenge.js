@@ -45,19 +45,22 @@ const gradeBook = {
   },
 
   getClassAverage(courseId) {
-    const getCourse = gradeBook.courses.find((c) => c.id === courseId);
+    const getCourse = gradeBook.courses.find(
+      (course) => course.id === courseId
+    );
     if (!getCourse || !getCourse.students.length) return null;
 
     const percentages = getCourse.students
       .map((getStudent) =>
         gradeBook.getStudentPercentage(courseId, getStudent.id)
       )
-      .filter((p) => p !== null);
+      .filter((percent) => percent !== null);
 
     if (!percentages.length) return null;
 
     const average =
-      percentages.reduce((sum, p) => sum + p, 0) / percentages.length;
+      percentages.reduce((sum, percent) => sum + percent, 0) /
+      percentages.length;
 
     return Math.round(average);
   },
