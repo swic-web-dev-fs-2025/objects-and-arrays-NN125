@@ -48,11 +48,13 @@ const gradeBook = {
   },
 
   getClassAverage(courseId) {
-    const getCourse = this.courses.find((c) => c.id === courseId);
+    const getCourse = gradeBook.courses.find((c) => c.id === courseId);
     if (!getCourse || !getCourse.students.length) return null;
 
     const percentages = getCourse.students
-      .map((getStudent) => this.getStudentPercentage(courseId, getStudent.id))
+      .map((getStudent) =>
+        gradeBook.getStudentPercentage(courseId, getStudent.id)
+      )
       .filter((p) => p !== null);
 
     if (!percentages.length) return null;
