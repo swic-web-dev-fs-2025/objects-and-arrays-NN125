@@ -25,17 +25,21 @@ const gradeBook = {
   ],
 
   getStudentPercentage(courseId, studentId) {
-    const getCourse = gradeBook.courses.find((c) => c.id === courseId);
+    const getCourse = gradeBook.courses.find(
+      (course) => course.id === courseId
+    );
     if (!getCourse) return null;
-    const getStudent = getCourse.students.find((s) => s.id === studentId);
+    const getStudent = getCourse.students.find(
+      (student) => student.id === studentId
+    );
     if (!getStudent || !getStudent.assignments.length) return null;
 
     const totalPoints = getStudent.assignments.reduce(
-      (sum, a) => sum + a.points,
+      (sum, accumulation) => sum + accumulation.points,
       0
     );
     const totalMaxPoints = getStudent.assignments.reduce(
-      (sum, a) => sum + a.maxPoints,
+      (sum, accumulation) => sum + accumulation.maxPoints,
       0
     );
 
