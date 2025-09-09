@@ -28,6 +28,24 @@ const gradeBook = {
   getStudentPercentage(courseId, studentId) {
     // Your implementation here
     // Should return percentage (0-100) based on assignments
+
+    const getCourse = this.courses.find((c) => c.id === courseId);
+    if (!getCourse) return null;
+    const getStudent = getCourse.students.find((s) => s.id === studentId);
+    if (!getStudent || !getStudent.assignments.length) return null;
+
+    const totalPoints = getStudent.assignments.reduce(
+      (sum, a) => sum + a.points,
+      0
+    );
+    const totalMaxPoints = getStudent.assignments.reduce(
+      (sum, a) => sum + a.maxPoints,
+      0
+    );
+
+    return totalMaxPoints > 0
+      ? Math.round((totalPoints / totalMaxPoints) * 100)
+      : null;
   },
 
   // TODO: Get class average for a course
