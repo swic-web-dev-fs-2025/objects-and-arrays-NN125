@@ -25,9 +25,6 @@ const gradeBook = {
   ],
 
   getStudentPercentage(courseId, studentId) {
-    // Your implementation here
-    // Should return percentage (0-100) based on assignments
-
     const getCourse = gradeBook.courses.find((c) => c.id === courseId);
     if (!getCourse) return null;
     const getStudent = getCourse.students.find((s) => s.id === studentId);
