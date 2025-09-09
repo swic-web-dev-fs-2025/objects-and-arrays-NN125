@@ -49,8 +49,19 @@ const gradeBook = {
 
   // TODO: Get class average for a course
   getClassAverage(courseId) {
-    // Your implementation here
-    // Should return average percentage for all students
+    const getCourse = this.courses.find((c) => c.id === courseId);
+    if (!getCourse || !getCourse.students.length) return null;
+
+    const percentages = getCourse.students
+      .map((getStudent) => this.getStudentPercentage(courseId, getStudent.id))
+      .filter((p) => p !== null);
+
+    if (!percentages.length) return null;
+
+    const average =
+      percentages.reduce((sum, p) => sum + p, 0) / percentages.length;
+
+    return Math.round(average);
   },
 
   // TODO: Add new assignment to all students (immutably!)
