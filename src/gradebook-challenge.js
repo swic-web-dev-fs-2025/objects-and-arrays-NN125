@@ -64,8 +64,22 @@ const gradeBook = {
 
   // TODO: Add new assignment to all students (immutably!)
   addAssignment(courseId, assignmentName, maxPoints) {
-    // Your implementation here
-    // Should return new gradebook object with assignment added
+    return {
+      ...gradeBook,
+      courses: gradeBook.courses.map((course) => {
+        if (course.id !== courseId) return course;
+        return {
+          ...course,
+          students: course.students.map((student) => ({
+            ...student,
+            assignments: [
+              ...student.assignments,
+              { name: assignmentName, points: 0, maxPoints },
+            ],
+          })),
+        };
+      }),
+    };
   },
 };
 
@@ -82,4 +96,4 @@ console.info("Class average:", classAverage);
 
 // Test adding assignment
 const updatedGradeBook = gradeBook.addAssignment("CS277", "Homework 1", 50);
-console.info("Updated gradebook:", updatedGradeBook);
+console.info(updatedGradeBook);
