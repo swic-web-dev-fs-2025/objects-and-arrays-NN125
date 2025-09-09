@@ -43,9 +43,7 @@ const gradeBook = {
       0
     );
 
-    return totalMaxPoints > 0
-      ? Math.round((totalPoints / totalMaxPoints) * 100)
-      : null;
+    return Math.round((totalPoints / totalMaxPoints) * 100);
   },
 
   getClassAverage(courseId) {
