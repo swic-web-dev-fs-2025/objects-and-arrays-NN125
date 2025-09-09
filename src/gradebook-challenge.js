@@ -47,7 +47,6 @@ const gradeBook = {
       : null;
   },
 
-  // TODO: Get class average for a course
   getClassAverage(courseId) {
     const getCourse = this.courses.find((c) => c.id === courseId);
     if (!getCourse || !getCourse.students.length) return null;
