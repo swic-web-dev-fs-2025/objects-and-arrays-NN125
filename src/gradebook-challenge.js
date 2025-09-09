@@ -24,7 +24,6 @@ const gradeBook = {
     },
   ],
 
-  // TODO: Calculate student's percentage in a course
   getStudentPercentage(courseId, studentId) {
     // Your implementation here
     // Should return percentage (0-100) based on assignments
