@@ -106,5 +106,4 @@ console.info("Class average:", classAverage);
 
 // Test adding assignment
 const updatedGradeBook = gradeBook.addAssignment("CS277", "Homework 1", 50);
-console.info("Updated gradebook:", updatedGradeBook);
-// console.dir(updatedGradeBook, { depth: null }); // "Updated gradebook:"
+console.info("Updated gradebook:", JSON.stringify(updatedGradeBook, null, " "));
