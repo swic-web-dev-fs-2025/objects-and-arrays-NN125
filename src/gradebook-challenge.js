@@ -71,7 +71,7 @@ const gradeBook = {
   // The new ESLint rules are freaking out over the 3 parameters being here, even though that's part of the starting code. So I'm ignoring it.
   // eslint-disable-next-line max-params
   addAssignment(courseId, assignmentName, maxPoints) {
-    return {
+    const updatedGradeBook = {
       ...gradeBook,
       courses: gradeBook.courses.map((course) => {
         if (course.id !== courseId) return course;
@@ -87,6 +87,9 @@ const gradeBook = {
         };
       }),
     };
+    // Only return the data, not the methods
+    const { courses } = updatedGradeBook;
+    return { courses };
   },
 };
 
@@ -104,3 +107,4 @@ console.info("Class average:", classAverage);
 // Test adding assignment
 const updatedGradeBook = gradeBook.addAssignment("CS277", "Homework 1", 50);
 console.info("Updated gradebook:", updatedGradeBook);
+// console.dir(updatedGradeBook, { depth: null }); // "Updated gradebook:"
