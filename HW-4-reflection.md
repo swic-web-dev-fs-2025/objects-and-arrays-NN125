@@ -8,6 +8,8 @@ When I first started this lesson, I still had a decent idea about how objects an
 
 ### React Readiness
 
+I definitely feel the most confident with using the spread operator. Those can make quick and easy copies of needed data so I can mess with that instead of the originals. With that said, I could definitely use a little more practice with array methods.
+
 ### Array Methods Mastery
 
 ### Immutability Understanding
