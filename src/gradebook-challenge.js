@@ -67,7 +67,6 @@ const gradeBook = {
     return Math.round(average);
   },
 
-  // TODO: Add new assignment to all students (immutably!)
   // The new ESLint rules are freaking out over the 3 parameters being here, even though that's part of the starting code. So I'm ignoring it.
   // eslint-disable-next-line max-params
   addAssignment(courseId, assignmentName, maxPoints) {
