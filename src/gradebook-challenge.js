@@ -89,8 +89,7 @@ const gradeBook = {
       }),
     };
     // Only return the data, not the methods
-    const { courses } = updatedGradeBook;
-    return { courses };
+    return updatedGradeBook;
   },
 };
 
